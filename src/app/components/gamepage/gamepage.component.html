@@ -1,0 +1,34 @@
+<div *ngIf="!quizCompleted; else result">
+  <div class="container">
+    <h1>Question {{ currentQuestionIndex + 1 }}</h1>
+    <div class="question">
+      <p>{{ mcq[currentQuestionIndex].question }}</p>
+    </div>
+    <div class="timer">
+      <p>Time left: {{ timeLeft }} seconds</p>
+    </div>
+    <div class="answers">
+      <label
+        *ngFor="let answer of mcq[currentQuestionIndex].answers | keyvalue"
+      >
+        <input
+          type="radio"
+          name="answer"
+          [value]="answer.key"
+          (change)="onAnswerSelect(answer.key)"
+          [checked]="selectedAnswer === answer.key"
+        />
+        {{ answer.value }} </label
+      ><br />
+    </div>
+    <button type="submit" (click)="onSubmit()">Submit</button>
+  </div>
+</div>
+
+<ng-template #result>
+  <div class="container">
+    <h1>{{ resultMessage }}</h1>
+    <p>Your Score: {{ score }} / {{ mcq.length }}</p>
+    <button (click)="resetQuiz()">Restart Quiz</button>
+  </div>
+</ng-template>

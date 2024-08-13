@@ -4,11 +4,8 @@ import { RulesComponent } from './components/rules/rules.component';
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, RulesComponent , RouterLink ],
+  imports: [RouterOutlet, RulesComponent, RouterLink],
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css'] // Corrected the property name
+  styleUrls: ['./app.component.css'], // Corrected the property name
 })
-export class AppComponent {
- 
-
-}
+export class AppComponent {}
